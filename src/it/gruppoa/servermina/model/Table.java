@@ -19,7 +19,7 @@ public class Table {
         
         for(Cell[] row : this.data)
             for(int i = 0; i < row.length; i++)
-                row[i] = Cell.BOMB;
+                row[i] = new Cell(Cell.CellType.BOMB);
         
     }
 

@@ -9,29 +9,25 @@ package it.gruppoa.servermina.model;
  *
  * @author st13299
  */
-public enum Cell {
+public class Cell {
 
-    BOMB('O'),
-    FLOWER('*');
-
-    private final char rappresentation;
+    private final CellType type;
     private boolean discovered;
 
-    private Cell(char rappresentation) {
-        this.rappresentation = rappresentation;
-        this.discovered = false;
+    public Cell(CellType type) {
+        this.type = type;
     }
 
     @Override
     public String toString() {
-        return discovered ? String.valueOf(rappresentation) : " ";
+        return discovered ? String.valueOf(type.getRappresentation()) : " ";
     }
 
     public CellDiscoverResult discover() {
 
         this.discovered = true;
 
-        if (this.rappresentation == '*') {
+        if (this.type == CellType.BOMB) {
             return CellDiscoverResult.CLEAR;
         }
 
@@ -43,6 +39,23 @@ public enum Cell {
 
     public boolean isDiscovered() {
         return discovered;
+    }
+    
+    public enum CellType{
+        
+        BOMB('O'),
+        FLOWER('*');
+        
+        private final char rappresentation;
+
+        private CellType(char rappresentation) {
+            this.rappresentation = rappresentation;
+        }
+
+        public char getRappresentation() {
+            return rappresentation;
+        }
+        
     }
 
 }
