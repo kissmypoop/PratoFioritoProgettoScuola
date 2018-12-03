@@ -5,8 +5,6 @@
  */
 package it.gruppoa.servermina;
 
-import it.gruppoa.servermina.model.Table;
-
 /**
  *
  * @author st13299
@@ -18,7 +16,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        System.out.println(new Table(12, 12));
+        new GameTask().start();
         
     }
     

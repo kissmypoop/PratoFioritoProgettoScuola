@@ -11,8 +11,18 @@ package it.gruppoa.servermina.model;
  */
 public enum CellDiscoverResult{
     
-    BOMB_EXPLODED,
-    BOMB_NOT_EXPLODED,
-    CLEAR;
+    BOMB_EXPLODED("Oh che sfortuna hai trovato una bomba ed è esplosa"),
+    BOMB_NOT_EXPLODED("Sei stato molto fortunato hai trovato una bomba ma non è esplosa"),
+    CLEAR("Via libera");
+    
+    private final String message;
+
+    private CellDiscoverResult(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
     
 }

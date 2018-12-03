@@ -20,14 +20,14 @@ public class Cell {
 
     @Override
     public String toString() {
-        return discovered ? String.valueOf(type.getRappresentation()) : " ";
+        return discovered ? String.valueOf(type.getRappresentation()) : "X";
     }
 
     public CellDiscoverResult discover() {
 
         this.discovered = true;
 
-        if (this.type == CellType.BOMB) {
+        if (this.type != CellType.BOMB) {
             return CellDiscoverResult.CLEAR;
         }
 
@@ -39,6 +39,12 @@ public class Cell {
 
     public boolean isDiscovered() {
         return discovered;
+    }
+    
+    public boolean isBomb(){
+        
+        return this.type == CellType.BOMB;
+        
     }
     
     public enum CellType{
