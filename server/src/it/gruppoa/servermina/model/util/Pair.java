@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.gruppoa.servermina.model;
-
-import java.util.Random;
+package it.gruppoa.servermina.model.util;
 
 /**
  *
  * @author st13299
  */
-public class WorldRandom {
-    
-    public final static Random RANDOM = new Random();
+public class Pair {
     
 }

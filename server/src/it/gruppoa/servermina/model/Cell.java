@@ -5,6 +5,8 @@
  */
 package it.gruppoa.servermina.model;
 
+import it.gruppoa.servermina.model.util.WorldRandom;
+
 /**
  *
  * @author st13299

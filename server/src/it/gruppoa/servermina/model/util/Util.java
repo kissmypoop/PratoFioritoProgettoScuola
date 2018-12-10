@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.gruppoa.servermina;
+package it.gruppoa.servermina.model.util;
 
 import java.util.Scanner;
 

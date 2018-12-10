@@ -5,6 +5,7 @@
  */
 package it.gruppoa.servermina.model;
 
+import it.gruppoa.servermina.model.util.WorldRandom;
 import java.util.Arrays;
 
 /**
@@ -15,13 +16,13 @@ public class Table {
 
     private final Cell[][] data;
 
-    public Table(int width, int lenght) {
+    public Table(int width, int height, int nBombs) {
 
-        if (width <= 0 || lenght <= 0) {
+        if (width <= 0 || height <= 0) {
             throw new IllegalArgumentException("Lunghezza e largezza devono essere maggiori di 0");
         }
 
-        this.data = new Cell[width][lenght];
+        this.data = new Cell[width][height];
 
         for (Cell[] row : this.data) {
             for (int i = 0; i < row.length; i++) {

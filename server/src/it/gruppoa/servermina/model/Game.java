@@ -16,9 +16,14 @@ public class Game{
     
     public Game(int width, int height){
         
-        this.table = new Table(width, height);
-        this.gameState = GameState.RUNNING;
+        this(new Table(width, height, 0));
         
+    }
+    
+    public Game(Table table){
+        
+        this.table = table;
+        this.gameState = GameState.RUNNING;
     }
     
     public String discover(int x, int y){
