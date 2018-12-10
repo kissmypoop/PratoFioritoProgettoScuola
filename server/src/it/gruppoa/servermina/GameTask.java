@@ -21,7 +21,7 @@ import java.util.Scanner;
 public class GameTask extends Thread {
 
     private final Socket conn;
-    private static final String messageTerminator = "\n\0\n";
+    private static final String MESSAGE_TERMINATOR = "\0";
 
     public GameTask(Socket conn) {
         this.conn = conn;
@@ -39,7 +39,7 @@ public class GameTask extends Thread {
 
             sout.println("Benvenuto a 'SCANSA LA MINA'");
             sout.println("Inserisci le dimensioni della tabella! [x y]");
-            sout.println(messageTerminator);
+            sout.println(MESSAGE_TERMINATOR);
 
             boolean error = false;
             Game game = null;
@@ -54,13 +54,13 @@ public class GameTask extends Thread {
                 } catch (IllegalArgumentException e) {
 
                     sout.println("Errore: " + e);
-                    sout.println(messageTerminator);
+                    sout.println(MESSAGE_TERMINATOR);
                     error = true;
 
                 } catch (InputMismatchException e) {
 
                     sout.println("Errore: formato di input non valido");
-                    sout.println(messageTerminator);
+                    sout.println(MESSAGE_TERMINATOR);
                     error = true;
 
                 } finally {
@@ -76,7 +76,7 @@ public class GameTask extends Thread {
                 System.out.println("Game running");
                 sout.println(game);
                 sout.println("Inserisci la tua prossima mossa  [x y]");
-                sout.println(messageTerminator);
+                sout.println(MESSAGE_TERMINATOR);
 
                 do {
 
@@ -84,18 +84,18 @@ public class GameTask extends Thread {
 
                     try {
 
-                        sout.println(game.discover(sin.nextInt(), sin.nextInt()) + "\n");
+                        sout.println(game.discover(sin.nextInt(), sin.nextInt()));
 
                     } catch (IllegalArgumentException e) {
 
                         sout.println("Errore: " + e);
-                        sout.println(messageTerminator);
+                        sout.println(MESSAGE_TERMINATOR);
                         error = true;
 
                     } catch (InputMismatchException e) {
 
                         sout.println("Errore: formato di input non valido");
-                        sout.println(messageTerminator);
+                        sout.println(MESSAGE_TERMINATOR);
                         error = true;
 
                     } finally {
@@ -108,7 +108,7 @@ public class GameTask extends Thread {
 
             sout.println("Fine partita: " + game.getGameState().getMessage() + "\n");
             sout.println(game);
-            sout.println(messageTerminator);
+            sout.println(MESSAGE_TERMINATOR);
 
             conn.close();
 
