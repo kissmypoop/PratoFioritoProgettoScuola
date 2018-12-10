@@ -21,14 +21,28 @@ public class Table {
         if (width <= 0 || height <= 0) {
             throw new IllegalArgumentException("Lunghezza e largezza devono essere maggiori di 0");
         }
+        
+        if(nBombs < 1 || nBombs > width * height)
+            throw new IllegalArgumentException("Invalid bomb number");
 
         this.data = new Cell[width][height];
 
-        for (Cell[] row : this.data) {
-            for (int i = 0; i < row.length; i++) {
-                row[i] = new Cell(WorldRandom.RANDOM.nextInt(2) == 0 ? Cell.CellType.FLOWER : Cell.CellType.BOMB);
+        while(nBombs > 0){
+            
+            int randX = WorldRandom.RANDOM.nextInt(width);
+            int randY = WorldRandom.RANDOM.nextInt(height);
+            
+            if(data[randX][randY] == null){
+                data[randX][randY] = new Cell(Cell.CellType.BOMB);
+                nBombs--;
             }
+            
         }
+        
+        for(Cell[] row : data)
+            for(int i = 0; i < row.length; i++)
+              if(row[i] == null)
+                  row[i] = new Cell(Cell.CellType.FLOWER);
 
     }
 

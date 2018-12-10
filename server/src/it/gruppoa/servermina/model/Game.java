@@ -16,7 +16,7 @@ public class Game{
     
     public Game(int width, int height){
         
-        this(new Table(width, height, 0));
+        this(new Table(width, height, 1));
         
     }
     

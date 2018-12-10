@@ -18,7 +18,7 @@ public class Util {
         StringBuilder sbld = new StringBuilder();
         
         String line = "0xCOFFEBABE";
-        while(!line.equals("\0")){
+        while(!"\0".equals(line)){
             line = s.nextLine();
             //System.err.print(line);
             sbld.append(line).append("\n");

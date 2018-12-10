@@ -16,7 +16,7 @@ public class Util {
     public static void clearBuffer(Scanner s){
         
         String line = "0xCOFFEBABE";
-        while(!line.equals("\0")){
+        while(!"\0".equals(line)){
             line = s.nextLine();
             //System.err.print(line);
         }
