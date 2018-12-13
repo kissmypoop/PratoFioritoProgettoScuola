@@ -1,21 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.gruppoa.servermina.model;
 
 import it.gruppoa.servermina.model.util.WorldRandom;
 import java.util.Arrays;
 
 /**
- *
- * @author st13299
+ *CLass che rappresnta una tabella
+ * @author alecsferra
  */
 public class Table {
 
+    //Matrice contenente le celle
     private final Cell[][] data;
 
+    /**
+     * Crea una tabella
+     * @param width altezza
+     * @param height larghzza
+     * @param nBombs numero di bombe
+     */
     public Table(int width, int height, int nBombs) {
 
         if (width <= 0 || height <= 0) {
@@ -64,6 +66,12 @@ public class Table {
 
     }
 
+    /**
+     * Scopri una cella
+     * @param x coordinata x (0 based)
+     * @param y coordinata y (0 based)
+     * @return il risultato della scoperta della cella
+     */
     public CellDiscoverResult discover(int x, int y) {
 
         if (x >= data.length || y >= data[0].length) {
@@ -77,6 +85,10 @@ public class Table {
 
     }
 
+    /**
+     * Ottieni il numero di bombe sul campo non scoperet
+     * @return numero di bomb sul campo non scoperte
+     */
     public long numberOfBombsLeft() {
 
         return Arrays.stream(this.data)
@@ -86,6 +98,10 @@ public class Table {
 
     }
 
+    /**
+     * Ottieni il numero di fiori non scoperti
+     * @return il numero di fiori non scoperti
+     */
     public boolean isAnyFlowerLeft() {
 
         return !Arrays.stream(this.data)

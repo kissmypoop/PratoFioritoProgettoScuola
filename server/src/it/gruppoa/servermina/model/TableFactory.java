@@ -1,19 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.gruppoa.servermina.model;
 
 import it.gruppoa.servermina.model.util.Pair;
 import it.gruppoa.servermina.model.util.WorldRandom;
 
 /**
- *
+ * Classe utiliy per genrare "tablle gemelle" cioè della stessa grandezza e con un numero di bombe bivise tra loro
  * @author st13299
  */
 public class TableFactory {
 
+    /**
+     * Ottieni un paio di tabelle gemelle (Vedi descrizione della classe)
+     * @param width larghezza
+     * @param height altezza
+     * @param nTotalBombs numero di bombe da mettere su il campo
+     * @return la coppia di tabelle all' interno di un Pair
+     */
     public static Pair<Table, Table> createTwinTables(int width, int height, int nTotalBombs) {
 
         int totalCells = width * height * 2;

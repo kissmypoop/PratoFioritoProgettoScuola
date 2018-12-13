@@ -1,18 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.gruppoa.servermina.model.util;
 
 import java.util.Scanner;
 
 /**
- *
- * @author st13299
+ * Raccolta di metodi di utility
+ * @author alecsferra
  */
 public class Util {
     
+    /**
+     * Pulisce il buffer di uno scanner che usa "\0" come terminator
+     * @param s scanner
+     */
     public static void clearBuffer(Scanner s){
         
         String line = "0xCOFFEBABE";

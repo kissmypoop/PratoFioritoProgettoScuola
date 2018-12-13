@@ -1,18 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.gruppoa.clientmina;
 
 import java.util.Scanner;
 
 /**
- *
- * @author aferr
+ * Classe di utility
+ * @author alecsferra
  */
 public class Util {
     
+    /**
+     * Legge tutto il buffer di uno scanner ch usa "\0" come terminator
+     * @param s scanner
+     * @return tutte le stringhe nel buffer
+     */
     public static String readWholeBuffer(Scanner s){
         
         StringBuilder sbld = new StringBuilder();

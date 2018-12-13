@@ -1,31 +1,43 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.gruppoa.servermina.model;
 
 /**
- *
- * @author st13299
+ * Classe che rappresenta la partita in se
+ * @author alecsferra
  */
 public class Game{
     
+    //Stato della partita
     private GameState gameState;
+    //Tabella
     private final Table table;
     
+    /**
+     * Creazioe di una partita data altezza e larghezza
+     * @param width larghezza
+     * @param height altezza
+     */
     public Game(int width, int height){
         
-        this(new Table(width, height, 1));
+        this(new Table(width, height, height * width / 4));
         
     }
     
+    /**
+     * Creazioe di una partita data una tabella
+     * @param table tabella
+     */
     public Game(Table table){
         
         this.table = table;
         this.gameState = GameState.RUNNING;
     }
     
+    /**
+     * Scopri una cella e aggiorna il game state
+     * @param x coordinata x (0 based)
+     * @param y coordinata y (0 based)
+     * @return Messaggio di scoperta
+     */
     public String discover(int x, int y){
     
        if(x < 0 || y < 0)
@@ -43,6 +55,10 @@ public class Game{
         
     }
 
+    /**
+     * Ottieni il game state attuale
+     * @return il game state
+     */
     public GameState getGameState() {
         return gameState;
     }

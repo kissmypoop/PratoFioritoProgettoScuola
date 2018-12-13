@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.gruppoa.servermina;
 
 import java.io.IOException;
@@ -12,7 +7,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author st13299
+ * @author alecsferra
  */
 public class Main {
 

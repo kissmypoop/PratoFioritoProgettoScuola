@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.gruppoa.servermina;
 
 import it.gruppoa.servermina.model.util.Util;
@@ -18,18 +13,27 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- *
- * @author st13299
+ * Classe che fa da ponte tra il client e una istanza del gioco
+ * @author alecsferra
  */
 public class GameTask extends Thread {
 
+    //Connessione con il client
     private final Socket conn;
+    //Tringa di terminazione di messaggio, usata per facilitare la lettura di tutto il buffer su il client
     private static final String MESSAGE_TERMINATOR = "\0";
 
+    /**
+     * Crea un istanza della classe GameStask
+     * @param conn connessione con il client
+     */
     public GameTask(Socket conn) {
         this.conn = conn;
     }
 
+    /**
+     * Flusso di gioco
+     */
     @SuppressWarnings("ConstantConditions")
     @Override
     public void run() {
