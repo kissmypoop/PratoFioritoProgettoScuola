@@ -8,6 +8,9 @@ package it.gruppoa.servermina;
 import it.gruppoa.servermina.model.util.Util;
 import it.gruppoa.servermina.model.Game;
 import it.gruppoa.servermina.model.GameState;
+import it.gruppoa.servermina.model.Table;
+import it.gruppoa.servermina.model.TableFactory;
+import it.gruppoa.servermina.model.util.Pair;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -38,10 +41,40 @@ public class GameTask extends Thread {
                 PrintWriter sout = new PrintWriter(conn.getOutputStream(), true)) {
 
             sout.println("Benvenuto a 'SCANSA LA MINA'");
-            sout.println("Inserisci le dimensioni della tabella! [x y]");
+            sout.println("Inserisci le dimensioni della tabella e il ratio di spqwn delle bombe! [x r r]");
             sout.println(MESSAGE_TERMINATOR);
 
-            boolean error = false;
+            boolean error;
+            Pair<Table, Table> tables = null;
+            do {
+
+                error = false;
+
+                try {
+
+                    tables = TableFactory.createTwinTables(sin.nextInt(), sin.nextInt(), sin.nextFloat());
+
+                } catch (IllegalArgumentException e) {
+
+                    sout.println("Errore: " + e.getMessage());
+                    sout.println(MESSAGE_TERMINATOR);
+                    error = true;
+
+                } catch (InputMismatchException e) {
+
+                    sout.println("Errore: formato di input non valido");
+                    sout.println(MESSAGE_TERMINATOR);
+                    error = true;
+
+                } finally {
+                    Util.clearBuffer(sin);
+                }
+
+            } while (error);
+
+            sout.println("Quale tabella vuoi? a[" + tables.getLeft().numberOfBombsLeft() + "] o b[" + tables.getRight().numberOfBombsLeft() + "]");
+            sout.println(MESSAGE_TERMINATOR);
+
             Game game = null;
             do {
 
@@ -49,11 +82,21 @@ public class GameTask extends Thread {
 
                 try {
 
-                    game = new Game(sin.nextInt(), sin.nextInt());
+                    String msg = sin.next();
+
+                    if ("a".equals(msg)) {
+                        game = new Game(tables.getLeft());
+                    } else if ("b".equals(msg)) {
+                        game = new Game(tables.getRight());
+                    } else {
+                        error = true;
+                        sout.println("Errore: Input non valido");
+                        sout.println(MESSAGE_TERMINATOR);
+                    }
 
                 } catch (IllegalArgumentException e) {
 
-                    sout.println("Errore: " + e);
+                    sout.println("Errore: " + e.getMessage());
                     sout.println(MESSAGE_TERMINATOR);
                     error = true;
 
@@ -88,7 +131,7 @@ public class GameTask extends Thread {
 
                     } catch (IllegalArgumentException e) {
 
-                        sout.println("Errore: " + e);
+                        sout.println("Errore: " + e.getMessage());
                         sout.println(MESSAGE_TERMINATOR);
                         error = true;
 

@@ -14,13 +14,12 @@ import it.gruppoa.servermina.model.util.WorldRandom;
  */
 public class TableFactory {
 
-    public Pair<Table, Table> createTwinTables(int width, int height, int perc) {
+    public static Pair<Table, Table> createTwinTables(int width, int height, float ratio) {
 
-        if (perc < 0 || perc > 100) {
-            throw new IllegalArgumentException("Invalid percentage");
-        }
+        if(ratio < 1f/5 || ratio > 4f/5)
+            throw new IllegalArgumentException("Ivalid ratio");
 
-        int nTotalBombs = width * height * perc / 100;
+        int nTotalBombs = (int) (width * height * ratio);
         int bombsLeft = WorldRandom.RANDOM.nextInt(nTotalBombs + 1);
 
         return Pair.of(new Table(width, height, bombsLeft),
