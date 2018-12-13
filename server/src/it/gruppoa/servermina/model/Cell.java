@@ -33,7 +33,7 @@ public class Cell {
             return CellDiscoverResult.CLEAR;
         }
 
-        return WorldRandom.getBoolFromPerc(75)
+        return WorldRandom.getBoolFromPerc(66)
                 ? CellDiscoverResult.BOMB_EXPLODED
                 : CellDiscoverResult.BOMB_NOT_EXPLODED;
 

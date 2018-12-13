@@ -22,7 +22,7 @@ public class Table {
             throw new IllegalArgumentException("Lunghezza e largezza devono essere maggiori di 0");
         }
         
-        if(nBombs < 1 || nBombs > width * height)
+       if(nBombs < 1 || nBombs > width * height)
             throw new IllegalArgumentException("Numero di bombe NON valido");
 
         this.data = new Cell[width][height];
@@ -70,6 +70,9 @@ public class Table {
             throw new IllegalArgumentException("X e Y devono essere minori della lunghezza/larghezza");
         }
 
+        if(data[x][y].isDiscovered())
+            throw new IllegalArgumentException("Questa cella è già stata scoperta");
+        
         return this.data[x][y].discover();
 
     }

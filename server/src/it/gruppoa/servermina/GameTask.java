@@ -41,7 +41,7 @@ public class GameTask extends Thread {
                 PrintWriter sout = new PrintWriter(conn.getOutputStream(), true)) {
 
             sout.println("Benvenuto a 'SCANSA LA MINA'");
-            sout.println("Inserisci le dimensioni della tabella e il rapporto (1/5 < r < 4/5) di comparsa delle bombe! [x y r]");
+            sout.println("Inserisci le dimensioni della tabella e il numero di bombe (1/5 < r < 4/5) di comparsa delle bombe! [x y n]");
             sout.println(MESSAGE_TERMINATOR);
 
             boolean error;
@@ -52,7 +52,7 @@ public class GameTask extends Thread {
 
                 try {
 
-                    tables = TableFactory.createTwinTables(sin.nextInt(), sin.nextInt(), sin.nextFloat());
+                    tables = TableFactory.createTwinTables(sin.nextInt(), sin.nextInt(), sin.nextInt());
 
                 } catch (IllegalArgumentException e) {
 
