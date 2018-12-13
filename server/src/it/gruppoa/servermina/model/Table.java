@@ -92,6 +92,7 @@ public class Table {
     public long numberOfBombsLeft() {
 
         return Arrays.stream(this.data)
+                .parallel()
                 .flatMap(Arrays::stream)
                 .filter(x -> x.isBomb() && !x.isDiscovered())
                 .count();
@@ -105,6 +106,7 @@ public class Table {
     public boolean isAnyFlowerLeft() {
 
         return !Arrays.stream(this.data)
+                .parallel()
                 .flatMap(Arrays::stream)
                 .filter(x -> !x.isBomb())
                 .allMatch(Cell::isDiscovered);
