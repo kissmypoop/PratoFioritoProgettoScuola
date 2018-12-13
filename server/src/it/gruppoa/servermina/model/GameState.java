@@ -13,7 +13,7 @@ public enum GameState{
     
     RUNNING(""),
     WON("Congratulazioni hai vinto!"),
-    LOST("Ritenta sarai più fortunato");
+    LOST("Ritenta, sarai più fortunato");
     
     private final String message;
 

@@ -23,7 +23,7 @@ public class Table {
         }
         
         if(nBombs < 1 || nBombs > width * height)
-            throw new IllegalArgumentException("Invalid bomb number");
+            throw new IllegalArgumentException("Numero di bombe NON valido");
 
         this.data = new Cell[width][height];
 

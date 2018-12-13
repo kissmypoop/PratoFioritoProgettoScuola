@@ -17,7 +17,7 @@ public class TableFactory {
     public static Pair<Table, Table> createTwinTables(int width, int height, float ratio) {
 
         if(ratio < 1f/5 || ratio > 4f/5)
-            throw new IllegalArgumentException("Ivalid ratio");
+            throw new IllegalArgumentException("Rapporto non valido");
 
         int nTotalBombs = (int) (width * height * ratio);
         int bombsLeft = WorldRandom.RANDOM.nextInt(nTotalBombs + 1);

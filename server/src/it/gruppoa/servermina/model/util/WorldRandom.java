@@ -18,7 +18,7 @@ public class WorldRandom {
     public static boolean getBoolFromPerc(int per){
         
         if(per < 0 || per > 100)
-            throw new IllegalArgumentException("Invalid percentage");
+            throw new IllegalArgumentException("Percentuale non valida");
         
         return RANDOM.nextInt(101) <= per;
     

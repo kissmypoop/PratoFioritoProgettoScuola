@@ -41,7 +41,7 @@ public class GameTask extends Thread {
                 PrintWriter sout = new PrintWriter(conn.getOutputStream(), true)) {
 
             sout.println("Benvenuto a 'SCANSA LA MINA'");
-            sout.println("Inserisci le dimensioni della tabella e il ratio di spqwn delle bombe! [x r r]");
+            sout.println("Inserisci le dimensioni della tabella e il rapporto (1/5 < r < 4/5) di comparsa delle bombe! [x y r]");
             sout.println(MESSAGE_TERMINATOR);
 
             boolean error;
@@ -112,11 +112,11 @@ public class GameTask extends Thread {
 
             } while (error);
 
-            System.out.println("Pre game loop");
+            System.out.println("Ciclo del pre-partita");
 
             while (game.getGameState() == GameState.RUNNING) {
 
-                System.out.println("Game running");
+                System.out.println("Gioco in esecuzione");
                 sout.println(game);
                 sout.println("Inserisci la tua prossima mossa  [x y]");
                 sout.println(MESSAGE_TERMINATOR);
