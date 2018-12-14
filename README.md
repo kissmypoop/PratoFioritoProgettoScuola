@@ -34,7 +34,7 @@ Il packag model contiene tutto ciò che riguarda la business logic dell' applica
 Nel package principale si trovano il Main usato solo per accettare i client e GameTask usato per interagire con il client.
 
 #### Utilizzo dei Thread
-I thread sono stati usati all' interno della classe Table rispettivamenti nei metodi [isAnyFlowerLeft](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/7b6dbd2724049ac2dbab0b7db905308eabeb47ab/server/src/it/gruppoa/servermina/model/Table.java#L109) e [numberOfBombsLeft](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/7b6dbd2724049ac2dbab0b7db905308eabeb47ab/server/src/it/gruppoa/servermina/model/Table.java#L97) per velocizzare la ricerca.
+I thread sono stati usati all' interno della classe Table rispettivamenti nei metodi [isAnyFlowerLeft](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/ccbbfbb6914d38f67458a5054fa55e3d8791ac2a/server/src/it/gruppoa/servermina/model/Table.java#L109) e [numberOfBombsLeft](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/ccbbfbb6914d38f67458a5054fa55e3d8791ac2a/server/src/it/gruppoa/servermina/model/Table.java#L95) per velocizzare la ricerca.
 Esempio:
 ```java
 IntStream.range(0, 10)
