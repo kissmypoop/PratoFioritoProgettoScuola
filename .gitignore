@@ -1,2 +1,4 @@
 /client/build/
 /server/build/
+/client/dist/
+/server/dist/
