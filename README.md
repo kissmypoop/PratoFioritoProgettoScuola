@@ -90,11 +90,13 @@ Come già spiegato prima il server permette a più host di giocare contemporanea
 
 ## Come utilizzare il gioco
 Passo 1: Scaricare i jar dalla sezione [release](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/releases/tag/Official).
+
 Passo 2: Lanciare il server.
 ```console
 user@machine:~$ java -jar ServerMina.jar 1555
 ```
 nb: Ovviamente sostituisci la porta con quella che vuoi usare non sei obbligato ad usare la stessa.
+
 Passo 3: Lanciare il client.
 ```console
 user@machine:~$ java -jar ClientMina.jar 127.0.0.1 1555
