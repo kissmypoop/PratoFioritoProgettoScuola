@@ -83,11 +83,25 @@ return WorldRandom.getBoolFromPerc(66)
         : CellDiscoverResult.BOMB_NOT_EXPLODED;
 ```
 Quando verràproposto all'utente quale tabella scegliere non verrà mostrato "Tabella più facile" o "Tabella più difficile" perè non determinable in caso il numero di bombe sia uguale su entrambe le tabelle.
-```
+```console
 Quale tabella vuoi a[50] o b[50]?
 ```
 Come già spiegato prima il server permette a più host di giocare contemporaneamente.
 
+## Come utilizzare il gioco
+Passo 1: Scaricare i jar dalla sezione [release](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/releases/tag/Official).
+
+Passo 2: Lanciare il server.
+```console
+user@machine:~$ java -jar ServerMina.jar 1555
+```
+nb: Ovviamente sostituisci la porta con quella che vuoi usare non sei obbligato ad usare la stessa.
+
+Passo 3: Lanciare il client.
+```console
+user@machine:~$ java -jar ClientMina.jar 127.0.0.1 1555
+```
+nb: Inserisci l'indirizzo ip della macchina su cui è hostato il server e mi raccomando non sbagliare porta!
 ## Suddivisione del lavoro
 | Membro               | Compiti svolti                                                                                                                                                                                                    |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
