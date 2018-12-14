@@ -24,7 +24,7 @@ public class Table {
             throw new IllegalArgumentException("Lunghezza e largezza devono essere maggiori di 0");
         }
         
-       if(nBombs < 1 || nBombs > width * height)
+       if(nBombs < 0 || nBombs > width * height)
             throw new IllegalArgumentException("Numero di bombe NON valido");
 
         this.data = new Cell[width][height];

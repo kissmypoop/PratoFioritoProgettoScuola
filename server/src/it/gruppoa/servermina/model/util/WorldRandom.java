@@ -25,4 +25,19 @@ public class WorldRandom {
     
     }
     
+    /**
+     * Ottinei un numero casueal nell' intervallo
+     * @param min valoreminimo
+     * @param max valore massimo
+     * @return ilnumero casuale
+     */
+    public static int randomBetween(int min, int max){
+        
+        if(min > max)
+            throw new IllegalArgumentException("Il minimo non può esseremaggiore del massimo");
+        
+        return RANDOM.nextInt((max - min) + 1) + min;
+        
+    }
+    
 }
