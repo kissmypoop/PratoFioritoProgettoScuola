@@ -2,8 +2,6 @@ package it.gruppoa.servermina;
 
 import java.io.IOException;
 import java.net.ServerSocket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -16,6 +14,11 @@ public class Main {
      */
     public static void main(String[] args) {
         
+        if(args.length != 1){
+            System.err.println("Errore nell utilizzo: \"java -jar ServerMina <porta>\"");
+            System.exit(-1);
+        }
+        
         try(ServerSocket server = new ServerSocket(1555)){
             
             while(true){
@@ -24,8 +27,11 @@ public class Main {
                 
             }
             
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException e) {
+            System.err.println("Errore inerno al server: " + e);
+        } catch(NumberFormatException e){
+            System.err.println("Errore nell utilizzo: \"java -jar ServerMina <porta>\"");
+            System.exit(-1);
         }
         
     }

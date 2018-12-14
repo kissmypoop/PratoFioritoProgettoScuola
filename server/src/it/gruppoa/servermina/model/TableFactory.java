@@ -27,11 +27,7 @@ public class TableFactory {
 
         int min = width * height * 1 / 5;
         int max = width * height * 4 / 5;
-        System.out.println(min+" : "+max);
         int rand = WorldRandom.randomBetween(Math.max(nTotalBombs - max, min), Math.min(nTotalBombs - min, max));
-
-        System.out.println("RAND: " + rand);
-        System.out.print("2: " + (nTotalBombs - rand));
         return Pair.of(new Table(width, height, rand),
                 new Table(width, height, nTotalBombs - rand));
 

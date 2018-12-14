@@ -116,11 +116,8 @@ public class GameTask extends Thread {
 
             } while (error);
 
-            System.out.println("Ciclo del pre-partita");
-
             while (game.getGameState() == GameState.RUNNING) {
-
-                System.out.println("Gioco in esecuzione");
+                
                 sout.println(game);
                 sout.println("Inserisci la tua prossima mossa  [x y]");
                 sout.println(MESSAGE_TERMINATOR);

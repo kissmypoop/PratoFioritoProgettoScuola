@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -17,8 +15,13 @@ public class Main {
     private static final String MESSAGE_TERMINATOR = "\n\0\n";
 
     public static void main(String[] args) {
+        
+        if(args.length != 2){
+            System.err.println("Errore nell utilizzo: \"java -jar ClientMina <indirizzo-server> <porta>\"");
+            System.exit(-1);
+        }
 
-        try (Socket conn = new Socket("127.0.0.1", 1555);
+        try (Socket conn = new Socket(args[0], Integer.parseInt(args[1]));
                 PrintWriter sin = new PrintWriter(conn.getOutputStream(), true);
                 Scanner sout = new Scanner(conn.getInputStream());
                 Scanner cin = new Scanner(System.in)) {
@@ -41,8 +44,11 @@ public class Main {
 
             } while (true);
 
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException e) {
+            System.err.println("Errore di connessione: " + e);
+        } catch(NumberFormatException e){
+            System.err.println("Errore nell utilizzo: \"java -jar ClientMina <indirizzo-server> <porta>\"");
+            System.exit(-1);
         }
 
     }
