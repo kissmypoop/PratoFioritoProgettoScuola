@@ -69,11 +69,11 @@ try(ServerSocket server = new ServerSocket(numeroPorta)){
     //Gestione Errori
 }  
 ```
-Per ultriori informazioni sull' interazione delle varie classi consultare le [javadocs](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/master/server/dist/javadoc/).
+Per ultriori informazioni sull' interazione delle varie classi consultare le [javadocs](https://alecsferra.github.io/PratoFioritoProgettoScuola/javadoc-server/).
 
 ### Il Client
 Come già spiegato in precedenza è stata usata la filosofia dl rendere il client più stupido possibile.
-Comunque anche per questa app sono dispnibli le [javadocs](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/master/client/dist/javadoc/).
+Comunque anche per questa app sono dispnibli le [javadocs](https://alecsferra.github.io/PratoFioritoProgettoScuola/javadoc-client/).
 
 #### Scelte di progettazione
 La probabilità di esplosione delle [bombe](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/c51b393ca0a58af7df9feee7bcd1f4be757419b4/server/src/it/gruppoa/servermina/model/Cell.java#L42) è stata impostata al 66%.
