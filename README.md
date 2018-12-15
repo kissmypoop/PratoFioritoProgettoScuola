@@ -14,12 +14,12 @@ Specifica speciale del gruppo:
 
 ## Descrizione del progetto
 ### Suddivisione
-Il progetto si suddivide in 2 app principali:
+Il progetto si suddivide in due app principali:
  - [Client](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/tree/master/client/src/it/gruppoa/clientmina)
  - [Server](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/tree/master/server/src/it/gruppoa/servermina)
 
-La filosofia alla base di tutto il progetto è stata rendere il client più semplice e "stupido" possibile e si occuprà solo di leggere ed inviare stringhe al server.
-Per i seguenti motivi:
+Per quanto riguarda il client, l'intento è di renderlo più semplice e "stupido" possibile, cosicché si occupi solo di leggere ed inviare stringhe al server.
+Tutto questo per i seguenti motivi:
  - Facilità di aggiornamento dell' app che richiederà solo modifiche sull' app server
  - Sicurezza: Rendere impossibile il barare nel gioco tramite manipolazione del client
 
@@ -30,11 +30,11 @@ Diagramma uml delle classi:
     <img src="https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/master/assets/UMLServer.PNG?raw=true"/>
 </p>
 
-Il packag model contiene tutto ciò che riguarda la business logic dell' applicazione e le classi di utility.
-Nel package principale si trovano il Main usato solo per accettare i client e GameTask usato per interagire con il client.
+Il Package Model contiene tutto ciò che riguarda la Business Logic dell' applicazione e le classi di utility.
+Nel package principale si trovano la classe Main usata solo per accettare i client e la classe GameTask usata per interagire con il client.
 
 #### Utilizzo dei Thread
-I thread sono stati usati all' interno della classe Table rispettivamenti nei metodi [isAnyFlowerLeft](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/ccbbfbb6914d38f67458a5054fa55e3d8791ac2a/server/src/it/gruppoa/servermina/model/Table.java#L109) e [numberOfBombsLeft](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/ccbbfbb6914d38f67458a5054fa55e3d8791ac2a/server/src/it/gruppoa/servermina/model/Table.java#L95) per velocizzare la ricerca.
+I thread sono stati usati all' interno della classe Table rispettivamente nei metodi [isAnyFlowerLeft()](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/ccbbfbb6914d38f67458a5054fa55e3d8791ac2a/server/src/it/gruppoa/servermina/model/Table.java#L109) e [numberOfBombsLeft()](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/ccbbfbb6914d38f67458a5054fa55e3d8791ac2a/server/src/it/gruppoa/servermina/model/Table.java#L95) per velocizzare la ricerca.
 Esempio:
 ```java
 IntStream.range(0, 10)
@@ -54,8 +54,8 @@ IntStream.range(0, 10)
          0
         */
 ```
-Infine i Thread sono anche stati usati per rendere l' applicazione utilizzabile da più client sullo stesso server facendo estendere ad [GameTask](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/c51b393ca0a58af7df9feee7bcd1f4be757419b4/server/src/it/gruppoa/servermina/GameTask.java#L19), che si occupa di interagire con il client, la classe Thread.
-Esempio di accettazione (Preso dal [Main](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/master/server/src/it/gruppoa/servermina/Main.java)):
+Inoltre, i Thread sono anche stati usati per rendere l'applicazione utilizzabile da più client connessi allo stesso server, facendo estendere a [GameTask](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/c51b393ca0a58af7df9feee7bcd1f4be757419b4/server/src/it/gruppoa/servermina/GameTask.java#L19) (che si occupa di interagire con il client) la classe Thread.
+Esempio di accettazione (preso dalla classe [Main](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/master/server/src/it/gruppoa/servermina/Main.java)):
 ```java
 try(ServerSocket server = new ServerSocket(numeroPorta)){
             
@@ -69,24 +69,23 @@ try(ServerSocket server = new ServerSocket(numeroPorta)){
     //Gestione Errori
 }  
 ```
-Per ultriori informazioni sull' interazione delle varie classi consultare le [javadocs](https://alecsferra.github.io/PratoFioritoProgettoScuola/javadoc-server/).
+Per ulteriori informazioni sulle interazioni delle varie classi consultare le [javadocs](https://alecsferra.github.io/PratoFioritoProgettoScuola/javadoc-server/).
 
 ### Il Client
-Come già spiegato in precedenza è stata usata la filosofia dl rendere il client più stupido possibile.
-Comunque anche per questa app sono dispnibli le [javadocs](https://alecsferra.github.io/PratoFioritoProgettoScuola/javadoc-client/).
+Come già spiegato in precedenza, è stata adoperata la filosofia di rendere il client più passivo possibile, inoltre anche per questa app sono disponibli le [javadocs](https://alecsferra.github.io/PratoFioritoProgettoScuola/javadoc-client/).
 
 #### Scelte di progettazione
-La probabilità di esplosione delle [bombe](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/c51b393ca0a58af7df9feee7bcd1f4be757419b4/server/src/it/gruppoa/servermina/model/Cell.java#L42) è stata impostata al 66%.
+La probabilità di esplosione delle [bombe](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/c51b393ca0a58af7df9feee7bcd1f4be757419b4/server/src/it/gruppoa/servermina/model/Cell.java#L42) è stata impostata al 66% (la quale corrisponde ai 2/3 dei casi).
 ```java
 return WorldRandom.getBoolFromPerc(66)
         ? CellDiscoverResult.BOMB_EXPLODED
         : CellDiscoverResult.BOMB_NOT_EXPLODED;
 ```
-Quando verràproposto all'utente quale tabella scegliere non verrà mostrato "Tabella più facile" o "Tabella più difficile" perè non determinable in caso il numero di bombe sia uguale su entrambe le tabelle.
+Quando verrà proposto all'utente quale tabella scegliere non verrà mostrato "Tabella più facile" o "Tabella più difficile" però non determinabile in caso il numero di bombe sia uguale su entrambe le tabelle.
 ```console
 Quale tabella vuoi a[50] o b[50]?
 ```
-Come già spiegato prima il server permette a più host di giocare contemporaneamente.
+Come già spiegato prima, il server permette a più host di giocare contemporaneamente.
 
 ## Come utilizzare il gioco
 Passo 1: Scaricare i jar dalla sezione [release](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/releases/tag/Official).
@@ -95,7 +94,7 @@ Passo 2: Lanciare il server.
 ```console
 user@machine:~$ java -jar ServerMina.jar 1555
 ```
-nb: Ovviamente sostituisci la porta con quella che vuoi usare non sei obbligato ad usare la stessa.
+NB: Ovviamente sostituisci la porta con quella che vuoi usare, non sei obbligato ad usare la stessa.
 
 Passo 3: Lanciare il client.
 ```console
@@ -105,6 +104,6 @@ nb: Inserisci l'indirizzo ip della macchina su cui è hostato il server e mi rac
 ## Suddivisione del lavoro
 | Membro               | Compiti svolti                                                                                                                                                                                                    |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Alessio Ferrarini    | <ul> <li>Progettazione logica dell'applicativo</li> <li>Coding dell' applicativo</li> <li>Gestione connessione</li> <li>Documentazione progetto</li> <li>Crazione JavaDocs</li> <li>Crazione relazione</li> </ul> |
+| Alessio Ferrarini    | <ul> <li>Progettazione logica dell'applicativo</li> <li>Coding dell' applicativo</li> <li>Gestione connessione</li> <li>Documentazione progetto</li> <li>Crazione JavaDocs</li> <li>Creazione relazione</li> </ul> |
 | Michele Dalle Vedove | <ul> <li>Non saper creare un metodo</li> </ul>                                                                                                                                                                    |
-| Riccardo Gini        | <ul> <li>stare a casa</li> </ul>                                                                                                                                                                                  |
+| Riccardo Gini        | <ul> <li><u>stare a casa</u></li>  <li>aiuto nell'implemento delle probabilità</li> <li> stesura parti della relazione </li> <li> revisione finale della relazione</li><li>creazione flow chart</li></ul>                                                                                                                                                                                  |
