@@ -3,6 +3,8 @@
 # SCANSA LA MINA
 Gioco online che utilizza socket per lo scambio di dati tra client e server.
 
+Gruppo 4: Ferrarini Alessio, Riccardo Gini e Michele dalle Vedove
+
 ## Consegna
 Realizzare una Java App implementata tramite socket e thread per far giocare un utente a “Campo Minato”. 
 Il Server distribuisce su una scacchiera di dimensioni m x n un numero di mine rappresentate da un carattere e nelle restanti celle viene raffigurato il terreno non minato tramite un carattere differente. 
@@ -111,5 +113,5 @@ nb: Inserisci l'indirizzo ip della macchina su cui è hostato il server e mi rac
 | Membro               | Compiti svolti                                                                                                                                                                                                    |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alessio Ferrarini    | <ul> <li>Progettazione logica dell'applicativo</li> <li>Coding dell' applicativo</li> <li>Gestione connessione</li> <li>Documentazione progetto</li> <li>Crazione JavaDocs</li> <li>Creazione relazione</li> </ul> |
-| Michele Dalle Vedove |                                                                                                                                                                   |
+| Michele Dalle Vedove | <ul> <li> Prova dell' applicazione</li> </ul>                                                                                                                                                                   |
 | Riccardo Gini        | <ul> <li>Aiuto nell'implementazione delle probabilità</li> <li>Stesura di alcune parti della relazione </li> <li>Revisione finale della relazione</li></ul>                                                                                                                                                                                  |
