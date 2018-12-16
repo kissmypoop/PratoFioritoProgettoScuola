@@ -31,7 +31,13 @@ Diagramma uml delle classi:
 </p>
 
 Il Package Model contiene tutto ciò che riguarda la Business Logic dell' applicazione e le classi di utility.
-Nel package principale si trovano la classe Main usata solo per accettare i client e la classe GameTask usata per interagire con il client.
+Nel package principale si trovano la classe [Main](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/master/server/src/it/gruppoa/servermina/Main.java) usata solo per validate porta ed accettare i client, la classe [GameTask](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/master/server/src/it/gruppoa/servermina/GameTask.java) invece è usata per interagire con il client.
+
+#### La struttura del Model
+La classe fondamentale è [Cell](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/master/server/src/it/gruppoa/servermina/model/Cell.java) che rappresenta la singola cella essa è di un [Tipo](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/c935da4c94b1c359b247b3fa72d5b50320777270/server/src/it/gruppoa/servermina/model/Cell.java#L69): BOMB o FLOWER.
+Un array bidimensionale di celle è conservato all' interno della classe [Table](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/master/server/src/it/gruppoa/servermina/model/Table.java).
+La classe [Game](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/master/server/src/it/gruppoa/servermina/model/Game.java) invece conterrà un' istanza di Table e un [GameState](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/master/server/src/it/gruppoa/servermina/model/GameState.java) che terrà traccia dello stato tella partità, inoltre essa fornirà i metodi necessari a [GameTask](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/master/server/src/it/gruppoa/servermina/GameTask.java) per interagire con l'utente.
+Per vedere più dettagliatamente consultare le [JavaDocs](https://alecsferra.github.io/PratoFioritoProgettoScuola/javadoc-server/) di tutto il package model;
 
 #### Utilizzo dei Thread
 I thread sono stati usati all' interno della classe Table rispettivamente nei metodi [isAnyFlowerLeft()](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/ccbbfbb6914d38f67458a5054fa55e3d8791ac2a/server/src/it/gruppoa/servermina/model/Table.java#L109) e [numberOfBombsLeft()](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/ccbbfbb6914d38f67458a5054fa55e3d8791ac2a/server/src/it/gruppoa/servermina/model/Table.java#L95) per velocizzare la ricerca.
@@ -106,4 +112,4 @@ nb: Inserisci l'indirizzo ip della macchina su cui è hostato il server e mi rac
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alessio Ferrarini    | <ul> <li>Progettazione logica dell'applicativo</li> <li>Coding dell' applicativo</li> <li>Gestione connessione</li> <li>Documentazione progetto</li> <li>Crazione JavaDocs</li> <li>Creazione relazione</li> </ul> |
 | Michele Dalle Vedove |                                                                                                                                                                   |
-| Riccardo Gini        | <ul> <li>Aiuto nell'implementazione delle probabilità</li> <li>Stesura di alcune parti della relazione </li> <li>Revisione finale della relazione</li><li>creazione flow chart</li></ul>                                                                                                                                                                                  |
+| Riccardo Gini        | <ul> <li>Aiuto nell'implementazione delle probabilità</li> <li>Stesura di alcune parti della relazione </li> <li>Revisione finale della relazione</li></ul>                                                                                                                                                                                  |
