@@ -82,6 +82,12 @@ Per ulteriori informazioni sulle interazioni delle varie classi consultare le [j
 ### Il Client
 Come già spiegato in precedenza, è stata adoperata la filosofia di rendere il client più passivo possibile, inoltre anche per questa app sono disponibli le [javadocs](https://alecsferra.github.io/PratoFioritoProgettoScuola/javadoc-client/).
 
+### Flow chart che rappresenta una parita
+
+<p align="center">
+    <img src="https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/master/assets/AppFlow.PNG?raw=true"/>
+</p>
+
 #### Scelte di progettazione
 La probabilità di esplosione delle [bombe](https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/c51b393ca0a58af7df9feee7bcd1f4be757419b4/server/src/it/gruppoa/servermina/model/Cell.java#L42) è stata impostata al 66% (la quale corrisponde ai 2/3 dei casi).
 ```java
@@ -114,4 +120,4 @@ nb: Inserisci l'indirizzo ip della macchina su cui è hostato il server e mi rac
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alessio Ferrarini    | <ul> <li>Progettazione logica dell'applicativo</li> <li>Coding dell' applicativo</li> <li>Gestione connessione</li> <li>Documentazione progetto</li> <li>Crazione JavaDocs</li> <li>Creazione relazione</li> </ul> |
 | Michele Dalle Vedove | <ul> <li> Prova dell' applicazione</li> </ul>                                                                                                                                                                   |
-| Riccardo Gini        | <ul> <li>Aiuto nell'implementazione delle probabilità</li> <li>Stesura di alcune parti della relazione </li> <li>Revisione finale della relazione</li></ul>                                                                                                                                                                                  |
+| Riccardo Gini        | <ul> <li>Aiuto nell'implementazione delle probabilità</li> <li>Stesura di alcune parti della relazione </li> <li>Revisione finale della relazione</li> <li>Realizzazione flow-chart</li></ul>                                                                                                                                                                                  |
