@@ -85,7 +85,7 @@ Come già spiegato in precedenza, è stata adoperata la filosofia di rendere il 
 ### Flow chart che rappresenta una parita
 
 <p align="center">
-    <img src="https://github.com/AlecsFerra/PratoFioritoProgettoScuola/blob/master/assets/AppFlow.PNG?raw=true"/>
+    <img src="https://raw.githubusercontent.com/AlecsFerra/PratoFioritoProgettoScuola/master/assets/AppFlow.png"/>
 </p>
 
 #### Scelte di progettazione
