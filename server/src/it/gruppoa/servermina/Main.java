@@ -19,7 +19,7 @@ public class Main {
             System.exit(-1);
         }
         
-        try(ServerSocket server = new ServerSocket(1555)){
+        try(ServerSocket server = new ServerSocket(Integer.parseInt(args[0])){
             
             while(true){
                 
